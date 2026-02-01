@@ -1,0 +1,281 @@
+@use '../variables' as *;
+@use 'sass:color';
+
+.admin-page {
+  min-height: 100vh;
+
+  .header {
+    padding: $spacing-lg;
+    background: $background;
+    box-shadow: $shadow-sm;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .title {
+      font-size: 2rem;
+      color: $primary-color;
+      font-weight: 700;
+    }
+
+    .home-link {
+      padding: $spacing-sm $spacing-md;
+      background: $primary-color;
+      color: white;
+      border-radius: $radius-md;
+      font-weight: 600;
+
+      &:hover {
+        background: color.adjust($primary-color, $lightness: -10%);
+      }
+    }
+  }
+
+  .main-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: $spacing-lg;
+  }
+
+  .error-message {
+    background: color.adjust($error-color, $lightness: 40%);
+    color: $error-color;
+    padding: $spacing-md;
+    border-radius: $radius-md;
+    margin-bottom: $spacing-lg;
+  }
+
+  .add-section {
+    background: $background;
+    padding: $spacing-lg;
+    border-radius: $radius-md;
+    box-shadow: $shadow-sm;
+    margin-bottom: $spacing-lg;
+
+    h2 {
+      color: $primary-color;
+      margin-bottom: $spacing-md;
+    }
+
+    .add-form {
+      display: flex;
+      gap: $spacing-sm;
+
+      @media (max-width: $mobile) {
+        flex-direction: column;
+      }
+
+      .idea-input {
+        flex: 1;
+        padding: $spacing-sm $spacing-md;
+        border: 2px solid $accent-color;
+        border-radius: $radius-sm;
+        font-size: 1rem;
+
+        &:focus {
+          border-color: $primary-color;
+        }
+      }
+
+      .add-button {
+        padding: $spacing-sm $spacing-lg;
+        background: $primary-color;
+        color: white;
+        border-radius: $radius-sm;
+        font-weight: 600;
+
+        &:hover {
+          background: color.adjust($primary-color, $lightness: -10%);
+        }
+      }
+    }
+  }
+
+  .reset-section {
+    background: $background;
+    padding: $spacing-lg;
+    border-radius: $radius-md;
+    box-shadow: $shadow-sm;
+    margin-bottom: $spacing-lg;
+    text-align: center;
+
+    .reset-button {
+      padding: $spacing-sm $spacing-lg;
+      background: $light-text;
+      color: white;
+      border-radius: $radius-sm;
+      font-weight: 600;
+
+      &:hover {
+        background: color.adjust($light-text, $lightness: -10%);
+      }
+    }
+
+    .reset-confirm {
+      p {
+        margin-bottom: $spacing-md;
+        color: $text-color;
+      }
+
+      button {
+        margin: 0 $spacing-xs;
+        padding: $spacing-sm $spacing-md;
+        border-radius: $radius-sm;
+        font-weight: 600;
+      }
+
+      .confirm-button {
+        background: $error-color;
+        color: white;
+
+        &:hover {
+          background: color.adjust($error-color, $lightness: -10%);
+        }
+      }
+
+      .cancel-button {
+        background: $light-text;
+        color: white;
+
+        &:hover {
+          background: color.adjust($light-text, $lightness: -10%);
+        }
+      }
+    }
+  }
+
+  .ideas-section {
+    background: $background;
+    padding: $spacing-lg;
+    border-radius: $radius-md;
+    box-shadow: $shadow-sm;
+
+    h2 {
+      color: $primary-color;
+      margin-bottom: $spacing-md;
+    }
+
+    .loading {
+      text-align: center;
+      color: $light-text;
+    }
+
+    .ideas-list {
+      display: flex;
+      flex-direction: column;
+      gap: $spacing-md;
+    }
+
+    .idea-item {
+      padding: $spacing-md;
+      background: color.adjust($accent-color, $lightness: 15%);
+      border-radius: $radius-sm;
+      transition: all 0.3s ease;
+
+      &:hover {
+        box-shadow: $shadow-sm;
+      }
+
+      .view-mode {
+        .idea-text {
+          font-size: 1.1rem;
+          color: $text-color;
+          margin-bottom: $spacing-sm;
+        }
+
+        .idea-meta {
+          display: flex;
+          gap: $spacing-sm;
+          margin-bottom: $spacing-sm;
+
+          .completed-badge {
+            background: $success-color;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.85rem;
+          }
+
+          .shown-badge {
+            background: $light-text;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.85rem;
+          }
+        }
+
+        .idea-actions {
+          display: flex;
+          gap: $spacing-sm;
+
+          button {
+            padding: $spacing-xs $spacing-md;
+            border-radius: $radius-sm;
+            font-size: 0.9rem;
+            font-weight: 600;
+          }
+
+          .edit-button {
+            background: $secondary-color;
+            color: white;
+
+            &:hover {
+              background: color.adjust($secondary-color, $lightness: -10%);
+            }
+          }
+
+          .delete-button {
+            background: $error-color;
+            color: white;
+
+            &:hover {
+              background: color.adjust($error-color, $lightness: -10%);
+            }
+          }
+        }
+      }
+
+      .edit-mode {
+        display: flex;
+        gap: $spacing-sm;
+
+        @media (max-width: $mobile) {
+          flex-direction: column;
+        }
+
+        .edit-input {
+          flex: 1;
+          padding: $spacing-sm;
+          border: 2px solid $primary-color;
+          border-radius: $radius-sm;
+          font-size: 1rem;
+        }
+
+        button {
+          padding: $spacing-sm $spacing-md;
+          border-radius: $radius-sm;
+          font-weight: 600;
+        }
+
+        .save-button {
+          background: $success-color;
+          color: white;
+
+          &:hover {
+            background: color.adjust($success-color, $lightness: -10%);
+          }
+        }
+
+        .cancel-button {
+          background: $light-text;
+          color: white;
+
+          &:hover {
+            background: color.adjust($light-text, $lightness: -10%);
+          }
+        }
+      }
+    }
+  }
+}

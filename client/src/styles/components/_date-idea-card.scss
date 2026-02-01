@@ -1,0 +1,45 @@
+@use '../variables' as *;
+
+.date-idea-card {
+  background: $background;
+  padding: $spacing-lg;
+  border-radius: $radius-md;
+  box-shadow: $shadow-md;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.3s ease;
+  animation: fadeIn 0.6s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: $shadow-lg;
+  }
+
+  .date-idea-text {
+    font-size: 1.2rem;
+    color: $text-color;
+    line-height: 1.6;
+    margin-bottom: $spacing-md;
+    flex: 1;
+  }
+
+  .select-button {
+    padding: $spacing-sm $spacing-lg;
+    background: linear-gradient(135deg, $primary-color, $secondary-color);
+    color: white;
+    border-radius: $radius-sm;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+
+    &:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(255, 77, 109, 0.3);
+    }
+
+    &:active:not(:disabled) {
+      transform: translateY(0);
+    }
+  }
+}
