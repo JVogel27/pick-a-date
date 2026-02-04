@@ -57,9 +57,19 @@ This will start:
 npm run build
 ```
 
+This command:
+- Builds the client with Vite
+- Compiles the TypeScript server
+- Copies data JSON files to the dist directory
+
 2. Start the production server:
 ```bash
 npm start
+```
+
+Or with environment variable:
+```bash
+NODE_ENV=production npm start
 ```
 
 ### Running Tests

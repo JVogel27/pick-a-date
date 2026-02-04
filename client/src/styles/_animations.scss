@@ -54,3 +54,81 @@
     transform: translateY(-10px);
   }
 }
+
+// Kaleidoscopic animation keyframes
+@keyframes spiralInward {
+  0% {
+    transform: translate(var(--start-x), var(--start-y)) rotate(0deg) scale(0);
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(0, 0) rotate(720deg) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes radialBurst {
+  0% {
+    transform: translate(0, 0) rotate(0deg) scale(0);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  50% {
+    transform: translate(var(--burst-x), var(--burst-y)) rotate(180deg) scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--burst-x), var(--burst-y)) rotate(360deg) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes kaleidoscopeSpin {
+  0% {
+    transform: translate(var(--burst-x), var(--burst-y)) rotate(0deg) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(calc(var(--burst-x) * 0.5), calc(var(--burst-y) * 0.5)) rotate(360deg) scale(1.3);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(0, 0) rotate(720deg) scale(0);
+    opacity: 0;
+  }
+}
+
+@keyframes colorShift {
+  0% {
+    filter: hue-rotate(0deg) brightness(1);
+  }
+  33% {
+    filter: hue-rotate(30deg) brightness(1.1);
+  }
+  66% {
+    filter: hue-rotate(-30deg) brightness(1.1);
+  }
+  100% {
+    filter: hue-rotate(0deg) brightness(1);
+  }
+}
+
+@keyframes morphScale {
+  0%, 100% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.15);
+  }
+  50% {
+    transform: scale(0.95);
+  }
+  75% {
+    transform: scale(1.1);
+  }
+}

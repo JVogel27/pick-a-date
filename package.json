@@ -7,10 +7,11 @@
     "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
     "dev:server": "tsx watch server/src/index.ts",
     "dev:client": "vite",
-    "build": "npm run build:client && npm run build:server",
+    "build": "npm run build:client && npm run build:server && npm run copy:data",
     "build:client": "vite build",
     "build:server": "tsc -p server/tsconfig.json",
-    "start": "node dist/server/index.js",
+    "copy:data": "mkdir -p dist/server/src/data && cp server/src/data/*.json dist/server/src/data/",
+    "start": "node dist/server/src/index.js",
     "test": "jest",
     "test:watch": "jest --watch"
   },
