@@ -1,0 +1,6 @@
+# Home-server CI/CD deploy contract — see service-config-convention.md
+APP_TYPE=server
+BUILD_CMD="npm run build"
+TEST_CMD="npm test"
+START_CMD="node dist/server/src/index.js"
+HEALTH_PATH="/api/health"

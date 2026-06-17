@@ -6,7 +6,10 @@ import type { DateIdea, DateIdeaData } from '../../../shared/types.js';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const DATA_FILE = path.join(__dirname, '../data/date-ideas.json');
+// Writable data dir. Defaults to the bundled server/data dir; set PICK_DATA_DIR
+// to a persistent path in production so date data survives deploys/rollbacks.
+const DATA_DIR = process.env.PICK_DATA_DIR || path.join(__dirname, '../data');
+const DATA_FILE = path.join(DATA_DIR, 'date-ideas.json');
 const TEMPLATE_FILE = path.join(__dirname, '../data/date-ideas-template.json');
 
 export class DateIdeaService {
@@ -14,7 +17,8 @@ export class DateIdeaService {
     try {
       await fs.access(DATA_FILE);
     } catch {
-      // File doesn't exist, copy from template
+      // File doesn't exist, copy from template (ensuring the data dir exists)
+      await fs.mkdir(DATA_DIR, { recursive: true });
       const template = await fs.readFile(TEMPLATE_FILE, 'utf-8');
       await fs.writeFile(DATA_FILE, template, 'utf-8');
     }
