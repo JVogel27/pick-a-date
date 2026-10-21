@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "A romantic date idea picker app",
   "type": "module",
+  "engines": { "node": ">=22 <23", "npm": ">=11 <12" },
   "scripts": {
     "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
     "dev:server": "tsx watch server/src/index.ts",
